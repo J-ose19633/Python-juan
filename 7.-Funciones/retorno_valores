@@ -1,0 +1,46 @@
+# La sentencia `return` se utiliza en funciones para enviar un valor de vuelta
+# al punto donde la función fue llamada. Una función puede devolver cualquier tipo de dato.
+
+# Ejemplo 1: Retornar un solo valor (número)
+def calcular_area_rectangulo(base, altura):
+    """Calcula el área de un rectángulo."""
+    area = base * altura
+    return area # Devuelve el valor del área
+
+# Llamada a la función y uso del valor retornado
+ancho = 10
+alto = 5
+area_calculada = calcular_area_rectangulo(ancho, alto)
+print(f"El área del rectángulo de {ancho}x{alto} es: {area_calculada}")
+
+# El valor retornado puede ser usado directamente en expresiones
+print(f"El doble del área de un rectángulo 4x6 es: {2 * calcular_area_rectangulo(4, 6)}")
+
+# Ejemplo 2: Retornar múltiples valores (como una tupla)
+def obtener_min_max(lista_numeros):
+    """Devuelve el valor mínimo y máximo de una lista."""
+    if not lista_numeros:
+        return None, None # Retorna dos Nones si la lista está vacía
+
+    min_val = min(lista_numeros)
+    max_val = max(lista_numeros)
+    return min_val, max_val # Python automáticamente los empaqueta en una tupla
+
+numeros = [3, 1, 8, 2, 9, 5]
+minimo, maximo = obtener_min_max(numeros) # Desempaquetado de la tupla retornada
+print(f"\nLista: {numeros}")
+print(f"Valor mínimo: {minimo}, Valor máximo: {maximo}")
+
+vacia = []
+min_vacio, max_vacio = obtener_min_max(vacia)
+print(f"Lista vacía: {vacia}")
+print(f"Valor mínimo (vacía): {min_vacio}, Valor máximo (vacía): {max_vacio}")
+
+# Ejemplo 3: Retornar valores booleanos
+def es_par(numero):
+    """Verifica si un número es par."""
+    return numero % 2 == 0 # Retorna True o False directamente
+
+print(f"\n¿10 es par? {es_par(10)}") # True
+print(f"¿7 es par? {es_par(7)}")   # False
+
